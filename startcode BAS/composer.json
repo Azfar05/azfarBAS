@@ -1,0 +1,20 @@
+{
+    "name": "azfar/bas",
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bas\\": "src/"
+        }
+        
+    },
+    "authors": [
+        {
+            "name": "azfarbholai",
+            "email": "9020769@student.zadkine.nl"
+        }
+    ],
+    "require": {},
+    "include-path": ["include/"]
+}
