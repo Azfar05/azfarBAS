@@ -1,5 +1,5 @@
 <?php
-// auteur: studentnaam
+// auteur: Azfar Bholai
 // functie: definitie class Klant
 namespace Bas\classes;
 

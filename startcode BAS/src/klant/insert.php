@@ -1,5 +1,5 @@
 <?php
-// auteur: studentnaam
+// auteur: azfar bholai
 // functie: insert class Klant
 
 // Autoloader classes via composer
