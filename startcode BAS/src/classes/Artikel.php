@@ -48,10 +48,10 @@ class Artikel extends Database {
      * @param int $artId
      * @return array
      */
-    public function getArtikel(int $klantId) : array {
-        $sql = "SELECT artId, artOmschrijving, artInkoop, artVerkoop, artVoorraad, artMinVoorraad, artMaxVoorraad, artLocatie FROM " . $this->table_name . " WHERE klantId = :klantId";
+    public function getArtikel(int $artId) : array {
+        $sql = "SELECT artId, artOmschrijving, artInkoop, artVerkoop, artVoorraad, artMinVoorraad, artMaxVoorraad, artLocatie FROM " . $this->table_name . " WHERE artId = :artId";
         $stmt = self::$conn->prepare($sql);
-        $stmt->bindParam(':artId', $klantId, \PDO::PARAM_INT);
+        $stmt->bindParam(':artId', $artId, \PDO::PARAM_INT);
         $stmt->execute();
         $klant = $stmt->fetch(\PDO::FETCH_ASSOC);
         return $klant ? $klant : [];
@@ -80,36 +80,41 @@ class Artikel extends Database {
      */
     public function showTable(array $lijst) : void {
         $txt = "<table>";
-
-        // Voeg de kolomnamen boven de tabel
-        $txt .= getTableHeader($lijst[0]);
-
-        foreach ($lijst as $row) {
-            $txt .= "<tr>";
-            $txt .=  "<td>" . $row["artId"] . "</td>";
-            $txt .=  "<td>" . $row["artOmschrijving"] . "</td>";
-            $txt .=  "<td>" . $row["artInkoop"] . "</td>";
-            $txt .=  "<td>" . $row["artVerkoop"] . "</td>";
-            $txt .=  "<td>" . $row["artVoorraad"] . "</td>";
-            $txt .=  "<td>" . $row["artMinVoorraad"] . "</td>";
-            $txt .=  "<td>" . $row["artMaxVoorraad"] . "</td>";
-            $txt .=  "<td>" . $row["artLocatie"] . "</td>";
-            
-            // Update
-            // Wijzig knopje
-            $txt .=  "<td>
-            <form method='post' action='update.php?artId={$row["artId"]}' >       
-                <button name='update'>Wzg</button>    
-            </form> </td>";
-
-            // Delete
-            $txt .=  "<td>
-            <form method='post' action='delete.php?artId={$row["artId"]}' >       
-                <button name='verwijderen'>Verwijderen</button>     
-            </form> </td>";    
-            $txt .= "</tr>";
+    
+        // Check if the list is not empty
+        if (!empty($lijst)) {
+            // Voeg de kolomnamen boven de tabel
+            $txt.= getTableHeader($lijst[0]);
+    
+            foreach ($lijst as $row) {
+                $txt.= "<tr>";
+                $txt.=  "<td>". $row["artId"]. "</td>";
+                $txt.=  "<td>". $row["artOmschrijving"]. "</td>";
+                $txt.=  "<td>". $row["artInkoop"]. "</td>";
+                $txt.=  "<td>". $row["artVerkoop"]. "</td>";
+                $txt.=  "<td>". $row["artVoorraad"]. "</td>";
+                $txt.=  "<td>". $row["artMinVoorraad"]. "</td>";
+                $txt.=  "<td>". $row["artMaxVoorraad"]. "</td>";
+                $txt.=  "<td>". $row["artLocatie"]. "</td>";
+                
+                // Update
+                // Wijzig knopje
+                $txt.=  "<td>
+                <form method='post' action='update.php?artId={$row["artId"]}' >       
+                    <button name='update'>Wzg</button>    
+                </form> </td>";
+    
+                // Delete
+                $txt.=  "<td>
+                <form method='post' action='delete.php?artId={$row["artId"]}' >       
+                    <button name='verwijderen'>Verwijderen</button>     
+                </form> </td>";    
+                $txt.= "</tr>";
+            }
+        } else {
+            $txt.= "<tr><td colspan='9'>No data found</td></tr>";
         }
-        $txt .= "</table>";
+        $txt.= "</table>";
         echo $txt;
     }
 
