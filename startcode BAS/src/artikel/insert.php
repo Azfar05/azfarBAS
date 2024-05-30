@@ -1,80 +1,77 @@
 <?php
-// auteur: Azfar bholai
-// functie: insert class artikel 
+// Auteur: Azfar
+// Functie: Insert artikelgegevens
 
-// Autoloader classes via composer
 require '../../vendor/autoload.php';
 use Bas\classes\Artikel;
-use Bas\classes\Database;
 
-$db = new Database();
-$db->getConnection();
+if(isset($_POST["insert"]) && $_POST["insert"] == "Toevoegen"){
+    if(isset($_POST['artOmschrijving']) && isset($_POST['artInkoop']) && isset($_POST['artVerkoop']) && isset($_POST['artVoorraad']) && isset($_POST['artMinVoorraad']) && isset($_POST['artMaxVoorraad']) && isset($_POST['artLocatie'])) {
+        // Maak een nieuw Artikel object aan
+        $artikel = new Artikel();
+        
+        // Bereid de artikelgegevens voor
+        $artikelgegevens = [
+            'artOmschrijving' => $_POST['artOmschrijving'],
+            'artInkoop' => $_POST['artInkoop'],
+            'artVerkoop' => $_POST['artVerkoop'],
+            'artVoorraad' => $_POST['artVoorraad'], 
+            'artMinVoorraad' => $_POST['artMinVoorraad'],
+            'artMaxVoorraad' => $_POST['artMaxVoorraad'],
+            'artLocatie' => $_POST['artLocatie'] 
+        ];
 
-// Maak een nieuwe klant aan
-$klant = new Artikel();
-
-
-//...
-
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['insert'])) {
-    $data = [
-        'artId' => $_POST['artId'],
-        'artOmschrijving' => $_POST['artOmschrijving'],
-        'artInkoop' => $_POST['artInkoop'],
-        'artVerkoop' => $_POST['artVerkoop'],
-        'artVoorraad' => $_POST['artVoorraad'],
-        'artMinVoorraad' => $_POST['artMinVoorraad'],
-        'artMaxVoorraad' => $_POST['artMaxVoorraad'],
-        'artLocatie' => $_POST['artLocatie'],
-    ];
-    
-    if ($klant->insertKlant($data)) {
-        echo "artikel succesvol toegevoegd!";
+        // Voeg de artikelgegevens toe aan de database
+        if($artikel->insertArtikel($artikelgegevens)) {
+            echo "Artikel succesvol toegevoegd!";
+        } else {
+            echo "Er is een fout opgetreden bij het toevoegen van het artikel.";
+        }
     } else {
-        echo "Er is een fout opgetreden bij het toevoegen van het artikel.";
+        echo "Vul alstublieft alle vereiste velden in.";
     }
 }
 ?>
 
 
 <!DOCTYPE html>
-<html lang="nl">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>CRUD Artikel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toevoegen Artikel</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+
     <h1>CRUD Artikel</h1>
-    <h1>Toevoegen</h1>
+    <h2>Toevoegen</h2>
     <form method="post">
-    <label for="artId">ArtikelID:</label>
-    <input type="text" id="artId" name="artId" placeholder="artId" required/>
+    <label for="oms">Artikelomschrijving:</label>
+    <input type="text" id="oms" name="artOmschrijving" placeholder="Artikelomschrijving" required/>
     <br>   
-    <label for="artOmschrijving">ArtikelOmschrijving:</label>
-    <input type="text" id="artOmschrijving" name="artOmschrijving" placeholder="artOmschrijving" required/>
-    <br>   
-    <label for="artInkoop">ArtikelInkoop:</label>
-    <input type="text" id="artInkoop" name="artInkoop" placeholder="artInkoop" required/>
+    <label for="ink">Inkoopprijs:</label>
+    <input type="text" id="ink" name="artInkoop" placeholder="Inkoopprijs" required/>
     <br>
-    <label for="artVerkoop">ArtikelVerkoop:</label>
-    <input type="text" id="artVerkoop" name="artVerkoop" placeholder="artVerkoop" required/>
+    <label for="ver">Verkoopprijs:</label>
+    <input type="text" id="ver" name="artVerkoop" placeholder="Verkoopprijs" required/>
     <br>
-    <label for="artVoorraad">ArtikelVoorraad:</label>
-    <input type="text" id="artVoorraad" name="artVoorraad" placeholder="artVoorraad" required/>
+    <label for="voo">Voorraad:</label>
+    <input type="text" id="voo" name="artVoorraad" placeholder="Voorraad" required/>
     <br>
-    <label for="artMinVoorraad">ArtikelMinVoorraad:</label>
-    <input type="text" id="artMinVoorraad" name="artMinVoorraad" placeholder="artMinVoorraad" required/>
+    <label for="min">Minimum voorraad:</label>
+    <input type="text" id="min" name="artMinVoorraad" placeholder="Minimum voorraad" required/>
     <br>
-    <label for="artMaxVoorraad">ArtikelMaxVoorraad:</label>
-    <input type="text" id="artMaxVoorraad" name="artMaxVoorraad" placeholder="artMaxVoorraad" required/>
+    <label for="max">Maximum voorraad:</label>
+    <input type="text" id="max" name="artMaxVoorraad" placeholder="Maximum voorraad" required/>
     <br>
-    <label for="artLocatie">ArtielLocatie:</label>
-    <input type="text" id="artLocatie" name="artLocatie" placeholder="artLocatie" required/>
-    <br>
-    <br>
+    <label for="loc">Locatie:</label>
+    <input type="text" id="loc" name="artLocatie" placeholder="Locatie" required/>
+    <br><br>
     <input type='submit' name='insert' value='Toevoegen'>
-</form>
-	<a href='read.php'>Terug</a>
+    </form></br>
+
+    <a href='read.php'>Terug</a>
+
 </body>
 </html>

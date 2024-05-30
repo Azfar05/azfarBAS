@@ -1,5 +1,5 @@
 <?php 
-// auteur: studentnaam
+// auteur: Amin
 // functie: 
 
 // Autoloader classes via composer
@@ -8,16 +8,13 @@ use Bas\classes\Artikel;
 
 if(isset($_POST["verwijderen"])){
 	
-	// Maak een object Artikel
+	// Maak een object Klant
 	
 	
 	// Delete Klant op basis van NR
 	
 
-	echo '<script>alert("Artikel verwijderd")</script>';
+	echo '<script>alert("Klant verwijderd")</script>';
 	echo "<script> location.replace('read.php'); </script>";
 }
-?>
-
-
-
+?>'
