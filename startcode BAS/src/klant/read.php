@@ -21,8 +21,7 @@
             </li>
             <div class="dropdown-content">
                 <a href="../index.html">Home<p class="menuitems"></p></a>
-                <a href=""></a>
-                <a href=""></a>
+               
 				
             </div>
         </div>

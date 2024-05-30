@@ -13,25 +13,18 @@
 
 <body>
 
-    <nav>
-        <ul>
-            <li><a href="/index.html">Menu BAS</a></li>
-        </ul>
-        <ul class="right">
-            <li class="dropdown"><a class="dropbtn" href="#jaar2">Info</a>
-                <div class="dropdown-content">
-                    <a href="klant/read.php">Crud Klant</a>
-                    <a href="artikel/read.php">Crud Artikel</a>
-                </div>
+<nav>
+        <div class="dropdown">
+            <li>
+                <a href=""><h2 class="menubutton">Menu Bas</h2></a>
             </li>
-            <li class="dropdown"><a class="dropbtn" href="#jaar2">Orders</a>
-                <div class="dropdown-content">
-                    <a href="#">Inkooporders</a>
-                    <a href="./classes/verkooporder.php">Verkooporders</a>
-                </div>
-            </li>
-        </ul>
+            <div class="dropdown-content">
+                <a href="../index.html">Home<p class="menuitems"></p></a>
+            </div>
+        </div>
+        <p class="midnav">VerkoopOrders</p>
     </nav>
+    
     
 <?php
 
@@ -47,5 +40,17 @@ $verkoopOrder = new VerkoopOrder;
 $verkoopOrder->crudVerkoopOrder();
 
 ?>
+
+<footer>
+        
+        <h2 class="fcontact">Contact</h2>
+        <p class="ftelnr">
+            TelefoonNummer <br>
+            0800-1111 216 <br>
+            LET OP: Dit nummer kan alleen gebeld worden vanuit Nederland!
+        </p>
+        
+    
+</footer>
 </body>
 </html>
