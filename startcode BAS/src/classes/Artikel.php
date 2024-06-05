@@ -165,6 +165,7 @@ class Artikel extends Database {
         
         // Prepare
         $stmt = self::$conn->prepare($sql);
+        
         $stmt->bindParam(':artId', $artId, \PDO::PARAM_INT);
         $stmt->bindParam(':artOmschrijving', $row['artOmschrijving'], \PDO::PARAM_STR);
         $stmt->bindParam(':artInkoop', $row['artInkoop'], \PDO::PARAM_STR);

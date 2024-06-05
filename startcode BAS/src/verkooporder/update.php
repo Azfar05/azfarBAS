@@ -1,12 +1,12 @@
 <?php
     // auteur: azfar
-    // functie: update class Artikel
+    // functie: update class VerkoopOrder
 
     // Autoloader classes via composer
     require '../../vendor/autoload.php';
-    use Bas\classes\Artikel;
+    use Bas\classes\VerkoopOrder;
     
-    $artikel = new Artikel;
+    $artikel = new VerkoopOrder;
 
     if(isset($_POST["update"]) && $_POST["update"] == "Wijzigen"){
 
@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-<h1>CRUD Artikel</h1>
+<h1>CRUD VerkoopOrder</h1>
 <h2>Wijzigen</h2>    
 <form method="post">
 <input type="hidden" name="artId" 

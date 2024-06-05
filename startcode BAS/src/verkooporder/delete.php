@@ -4,7 +4,7 @@
 
 // Autoloader classes via composer
 require '../../vendor/autoload.php';
-use Bas\classes\Artikel;
+use Bas\classes\VerkoopOrder;
 
 if(isset($_POST["verwijderen"])){
 	

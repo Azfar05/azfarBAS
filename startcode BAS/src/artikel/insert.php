@@ -2,35 +2,37 @@
 // Auteur: Azfar
 // Functie: Insert artikelgegevens
 
+
 require '../../vendor/autoload.php';
 use Bas\classes\Artikel;
+use Bas\classes\Database;
 
-if(isset($_POST["insert"]) && $_POST["insert"] == "Toevoegen"){
-    if(isset($_POST['artOmschrijving']) && isset($_POST['artInkoop']) && isset($_POST['artVerkoop']) && isset($_POST['artVoorraad']) && isset($_POST['artMinVoorraad']) && isset($_POST['artMaxVoorraad']) && isset($_POST['artLocatie'])) {
-        // Maak een nieuw Artikel object aan
-        $artikel = new Artikel();
-        
-        // Bereid de artikelgegevens voor
-        $artikelgegevens = [
-            'artOmschrijving' => $_POST['artOmschrijving'],
-            'artInkoop' => $_POST['artInkoop'],
-            'artVerkoop' => $_POST['artVerkoop'],
-            'artVoorraad' => $_POST['artVoorraad'], 
-            'artMinVoorraad' => $_POST['artMinVoorraad'],
-            'artMaxVoorraad' => $_POST['artMaxVoorraad'],
-            'artLocatie' => $_POST['artLocatie'] 
-        ];
+$db = new Database();
+$conn = $db -> getConnection();
 
-        // Voeg de artikelgegevens toe aan de database
-        if($artikel->insertArtikel($artikelgegevens)) {
-            echo "Artikel succesvol toegevoegd!";
-        } else {
-            echo "Er is een fout opgetreden bij het toevoegen van het artikel.";
-        }
+if(isset($_POST["insert"]) && $_POST["insert"] == "Toevoegen") {
+    // Assuming you have a database connection established, you can proceed with inserting the data into the database
+ 
+    // Retrieve the form data
+    $artOmschrijving = $_POST['artOmschrijving'];
+    $artInkoop = $_POST['artInkoop'];
+    $artVerkoop = $_POST['artVerkoop'];
+    $artVoorraad = $_POST['artVoorraad'];
+    $artMinVoorraad = $_POST['artMinVoorraad'];
+    $artMaxVoorraad = $_POST['artMaxVoorraad'];
+    $artLocatie = $_POST['artLocatie'];
+ 
+    // Create a new Klant object
+    $artikel = new Artikel();
+ 
+    // Insert the new customer into the database
+    if($artikel->insertArtikel($_POST, $conn)) {
+        echo " Klant toegevoegd successfully.";
     } else {
-        echo "Vul alstublieft alle vereiste velden in.";
+    echo " Error adding klant.";
     }
 }
+
 ?>
 
 
