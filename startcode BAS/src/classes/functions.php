@@ -12,4 +12,4 @@ function getTableHeader(array $row) : string {
     $headerTxt.= "</tr>";
     return $headerTxt;
 }
-?>
+

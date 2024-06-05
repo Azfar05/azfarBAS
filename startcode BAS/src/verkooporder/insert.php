@@ -29,6 +29,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['insert'])) {
         echo "Er is een fout opgetreden bij het toevoegen van uw bestelling.";
     }
 }
+
+$sql = "SELECT Klant.klantNaam FROM Klant INNER JOIN VerkoopOrder ON Klant.klantNaam = Klant.klantNaam";
+$result = $conn->query($sql);
+
+
 ?>
 
 <!DOCTYPE html>

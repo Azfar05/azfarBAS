@@ -8,7 +8,6 @@ use PDOException;
 use Bas\classes\Database;
 
 include_once "functions.php";
-
 class VerkoopOrder extends Database {
     public $verkOrdId;
     public $klantId;
@@ -198,4 +197,6 @@ class VerkoopOrder extends Database {
      */
     
 }
-?>'
+
+
+

@@ -11,6 +11,12 @@
     if(isset($_POST["update"]) && $_POST["update"] == "Wijzigen"){
 
         // Code voor een update
+    $artikelId = $_POST['artId'];
+    $artOmschrijving = $_POST['artOmschrijving'];
+    $artInkoop = $_POST['artInkoop'];
+
+// Insert artikel into VerkoopOrder
+$artikel->insertArtikel($artikelId, $artOmschrijving, $artInkoop);
         
     }
 

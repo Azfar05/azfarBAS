@@ -38,7 +38,6 @@ $verkoopOrder = new VerkoopOrder;
 
 // Start CRUD
 $verkoopOrder->crudVerkoopOrder();
-
 ?>
 
 <footer>
