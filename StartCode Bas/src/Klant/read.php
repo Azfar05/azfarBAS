@@ -26,6 +26,12 @@
         <p class="midnav">HomePage</p>
     </nav>
 	
+    <form method="post">
+        <label for="klantNaam">Zoek op klantnaam:</label>
+        <input type="text" name="klantNaam" id="klantNaam">
+        <input type="submit" name="search" value="Zoeken">
+    </form>
+
 <?php
 
 // Autoloader classes via composer

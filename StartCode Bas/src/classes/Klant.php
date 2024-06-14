@@ -19,16 +19,25 @@ class Klant extends Database {
      * @return void
      */
     public function crudKlant() : void {
-        // Haal alle klant op uit de database mbv de method getKlant()
+        // Haal alle klant op uit de database mbv de method getKlanten()
         $lijst = $this->getKlanten();
- 
-        // Print een HTML tabel van de lijst    
-        $this->showTable($lijst);
+        //zoekt klant met
+        try {
+            if (isset($_POST['search']) && !empty($_POST['klantNaam'])) {
+                $klanten = $this->zoekKlanten($_POST['klantNaam']);
+            } else {
+                $klanten = $this->getKlanten();
+            }
+            // Print een HTML tabel van de lijst    
+            $this->showTable($lijst);
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
     }
  
     /**
-     * Summary of getKlant
-     * @return mixed
+     * Summary of getKlanten
+     * @return array
      */
     public function getKlanten() : array {
         try {
@@ -44,73 +53,67 @@ class Klant extends Database {
         }
     }
  
- /**
-  * Summary of getKlant
-  * @param int $klantId
-  * @return mixed
-  */
+    /**
+     * Summary of getKlant
+     * @param int $klantId
+     * @return array
+     */
     public function getKlant(int $klantId) : array {
- 
         // Doe een fetch op $klantId
-       
         // testdata
-        $lijst =
-            ['klantId' => 1, 'klantEmail' => 'test1@example.com', 'klantNaam' => 'Test 1', 'klantWoonplaats' => 'City 1']
-        ;
+        $lijst = ['klantId' => 1, 'klantEmail' => 'test1@example.com', 'klantNaam' => 'Test 1', 'klantWoonplaats' => 'City 1'];
  
         return $lijst;
     }
    
-    public function dropDownKlant($row_selected = -1){
-   
+    public function dropDownKlant($row_selected = -1) {
         // Haal alle klanten op uit de database mbv de method getKlanten()
         $lijst = $this->getKlanten();
        
         echo "<label for='Klant'>Choose a klant:</label>";
         echo "<select name='klantId'>";
-        foreach ($lijst as $row){
-            if($row_selected == $row["klantId"]){
-                echo "<option value='$row[klantId]' selected='selected'> $row[klantnaam] $row[klantemail]</option>\n";
+        foreach ($lijst as $row) {
+            if ($row_selected == $row["klantId"]) {
+                echo "<option value='$row[klantId]' selected='selected'> $row[klantNaam] $row[klantEmail]</option>\n";
             } else {
-                echo "<option value='$row[klantId]'> $row[klantnaam] $row[klantemail]</option>\n";
+                echo "<option value='$row[klantId]'> $row[klantNaam] $row[klantEmail]</option>\n";
             }
         }
         echo "</select>";
     }
  
- /**
-  * Summary of showTable
-  * @param mixed $lijst
-  * @return void
-  */
-    public function showTable($lijst) : void {
- 
+    /**
+     * Summary of showTable
+     * @param array $lijst
+     * @return void
+     */
+    public function showTable(array $lijst) : void {
         $txt = "<table>";
  
         // Voeg de kolomnamen boven de tabel
         $txt .= getTableHeader($lijst[0]);
  
-        foreach($lijst as $row){
+        foreach ($lijst as $row) {
             $txt .= "<tr>";
-            $txt .=  "<td>" . $row["klantId"] . "</td>";
-            $txt .=  "<td>" . $row["klantNaam"] . "</td>";
-            $txt .=  "<td>" . $row["klantEmail"] . "</td>";
-            $txt .=  "<td>" . $row["klantWoonplaats"] . "</td>";
+            $txt .= "<td>" . $row["klantId"] . "</td>";
+            $txt .= "<td>" . $row["klantNaam"] . "</td>";
+            $txt .= "<td>" . $row["klantEmail"] . "</td>";
+            $txt .= "<td>" . $row["klantWoonplaats"] . "</td>";
            
-            //Update
+            // Update
             // Wijzig knopje
-            $txt .=  "<td>";
-            $txt .= "
-            <form method='post' action='update.php?klantId=$row[klantId]' >      
-                <button name='update'>Wzg</button>  
-            </form> </td>";
+            $txt .= "<td>
+                <form method='post' action='update.php?klantId=$row[klantId]'>      
+                    <button name='update'>Wzg</button>  
+                </form>
+            </td>";
  
-            //Delete
-            $txt .=  "<td>";
-            $txt .= "
-            <form method='post' action='delete.php?klantId=$row[klantId]' >      
-                <button name='verwijderen'>Verwijderen</button>  
-            </form> </td>";
+            // Delete
+            $txt .= "<td>
+                <form method='post' action='delete.php?klantId=$row[klantId]'>      
+                    <button name='verwijderen'>Verwijderen</button>  
+                </form>
+            </td>";
             $txt .= "</tr>";
         }
         $txt .= "</table>";
@@ -143,7 +146,7 @@ class Klant extends Database {
     /**
      * Summary of insertKlant
      * Voeg een nieuwe klant toe aan de database
-     * @param mixed $row Array met klantgegevens
+     * @param array $row Array met klantgegevens
      * @return bool True als het invoegen succesvol is, anders False
      */
     public function insertKlant(array $row) : bool {
@@ -183,8 +186,43 @@ class Klant extends Database {
             return false; // Fout bij het invoegen
         }
     }
+
+    /**
+     * Summary of deleteKlant
+     * @param int $klantId
+     * @return bool
+     */
+    public function deleteKlant(int $klantId): bool {
+        try {
+            $sql = "DELETE FROM $this->table_name WHERE klantId = :klantId";
+            $stmt = self::$conn->prepare($sql);
+            $stmt->bindParam(':klantId', $klantId, PDO::PARAM_INT);
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+            return false;
+        }
+    }
+
+    /**
+     * Zoek klanten op basis van naam
+     * @param string $klantNaam
+     * @return array
+     */
+    public function zoekKlanten(string $klantNaam): array {
+        try {
+            $sql = "SELECT * FROM $this->table_name WHERE klantNaam LIKE :klantNaam";
+            $stmt = self::$conn->prepare($sql);
+            $naam = '%' . $klantNaam . '%';
+            $stmt->bindParam(':klantNaam', $naam, PDO::PARAM_STR);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: [];
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+            return [];
+        }
+    }
+
 }
 ?>
-
-
-
