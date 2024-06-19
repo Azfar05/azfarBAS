@@ -5,17 +5,16 @@
 require '../../vendor/autoload.php';
 use Bas\classes\Klant;
 use Bas\classes\Artikel;
-use Bas\classes\Verkooporder;
+use Bas\classes\VerkoopOrder; // corrected class name case
 
 $message = "";
 
 // Maak nieuwe objecten aan
 $klant = new Klant();
 $artikel = new Artikel();
-$verkooporder = new Verkooporder();
+$verkooporder = new VerkoopOrder();
 
 $klanten = $klant->getKlanten(); // Hier wordt de getKlanten methode opgeroepen
-
 $artikelen = $artikel->getArtikelen();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["insert"]) && $_POST["insert"] == "Toevoegen") {
@@ -41,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["insert"]) && $_POST["i
             'verkOrdStatus' => intval($_POST['verkOrdStatus'])
         ];
 
-        if ($verkooporder->insertVerkooporder($verkoopordergegevens)) {
+        if ($verkooporder->insertVerkoopOrder($verkoopordergegevens)) {
             $message = "Verkooporder succesvol toegevoegd!";
         } else {
             $message = "Er is een fout opgetreden bij het toevoegen van de verkooporder.";
@@ -92,7 +91,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["insert"]) && $_POST["i
         <input type="number" id="verkOrdBestAantal" name="verkOrdBestAantal" required/>
         <br>
         <label for="verkOrdStatus">Verkooporder Status:</label>
-        <input type="number" id="verkOrdStatus" name="verkOrdStatus" required/>
+        <select id="verkOrdStatus" name="verkOrdStatus" required>
+            <option value="1">Confirmed</option>
+            <option value="2">Picking</option>
+            <option value="3">Shipping</option>
+            <option value="4">Delivered</option>
+        </select>
         <br><br>
         <input type='submit' name='insert' value='Toevoegen'>
     </form></br>

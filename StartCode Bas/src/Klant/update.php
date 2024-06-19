@@ -40,6 +40,8 @@
 <input type="submit" name="update" value="Wijzigen">
 </form></br>
 
+
+
 <a href="read.php">Terug</a>
 
 </body>
