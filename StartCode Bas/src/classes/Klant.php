@@ -224,5 +224,42 @@ class Klant extends Database {
         }
     }
 
+    /**
+ * Summary of updateKlant
+ * Update klantgegevens in de database
+ * @param array $row Array met klantgegevens
+ * @return bool True als de update succesvol is, anders False
+ */
+public function updateKlant(array $row) : bool {
+    try {
+        $sql = "UPDATE $this->table_name SET 
+                klantEmail = :klantEmail, 
+                klantNaam = :klantNaam, 
+                klantWoonplaats = :klantWoonplaats, 
+                klantAdres = :klantAdres, 
+                klantPostcode = :klantPostcode,
+                klantWachtwoord = :klantWachtwoord
+                WHERE klantId = :klantId";
+        
+        $stmt = self::$conn->prepare($sql);
+        
+        $stmt->bindParam(':klantId', $row['klantId'], PDO::PARAM_INT);
+        $stmt->bindParam(':klantEmail', $row['klantEmail'], PDO::PARAM_STR);
+        $stmt->bindParam(':klantNaam', $row['klantNaam'], PDO::PARAM_STR);
+        $stmt->bindParam(':klantWoonplaats', $row['klantWoonplaats'], PDO::PARAM_STR);
+        $stmt->bindParam(':klantAdres', $row['klantAdres'], PDO::PARAM_STR);
+        $stmt->bindParam(':klantPostcode', $row['klantPostcode'], PDO::PARAM_STR);
+        $stmt->bindParam(':klantWachtwoord', $row['klantWachtwoord'], PDO::PARAM_STR);
+        
+        $stmt->execute();
+        
+        return true;
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+        return false;
+    }
+}
+
+
 }
 ?>
