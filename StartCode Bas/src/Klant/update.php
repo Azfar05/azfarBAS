@@ -1,23 +1,22 @@
 <?php
     // auteur: azfar
     // functie: update class Klant
-
     // Autoloader classes via composer
     require '../../vendor/autoload.php';
     use Bas\classes\Klant;
     
     $klant = new Klant;
-
+        // Code voor een update
+    //haalt gegevens op voor de update
     if(isset($_POST["update"]) && $_POST["update"] == "Wijzigen"){
-        // get $ en post het
-        $klantId = $_POST["klantId"]; 
-        $klantNaam = $_POST["klantNaam"];
-        $klantEmail = $_POST["klantEmail"];
+        $klantId = $_POST["klantId"]; // Get ID van input
+        $klantNaam = $_POST["klantNaam"]; 
+        $klantEmail = $_POST["klantEmail"]; 
         $klantAdres = $_POST["klantAdres"]; 
         $klantPostcode = $_POST["klantPostcode"];
         $klantWoonplaats = $_POST["klantWoonplaats"];
-        $klantWachtwoord = $_POST["klantWachtwoord"]; 
-
+        $klantWachtwoord = $_POST["klantWachtwoord"]; // Get password if provided 
+        
         $row = array(
             "klantId" => $klantId,
             "klantNaam" => $klantNaam,
@@ -27,8 +26,7 @@
             "klantWoonplaats" => $klantWoonplaats,
             "klantWachtwoord" => $klantWachtwoord  // Include password in the array
         );
-
-        // Code voor een update
+        
         $success = $klant->updateKlant($row); 
         
         if ($success) {
@@ -37,11 +35,12 @@
             echo "Fout bij het bijwerken van klantgegevens.";
         }
     }
-
     if (isset($_GET['klantId'])){
         $row = $klant->getKlant($_GET['klantId']);
-
 ?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>

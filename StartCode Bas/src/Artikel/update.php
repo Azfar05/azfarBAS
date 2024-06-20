@@ -11,7 +11,31 @@
     if(isset($_POST["update"]) && $_POST["update"] == "Wijzigen"){
 
         // Code voor een update
+        $artId = $_POST["artId"]; // Get ID van input
+        $artOmschrijving = $_POST["artOmschrijving"]; 
+        $artInkoop = $_POST["artInkoop"]; 
+        $artVerkoop = $_POST["artVerkoop"]; 
+        $artMinVoorraad = $_POST["artMinVoorraad"];
+        $artMaxVoorraad = $_POST["artMaxVoorraad"];
+        $artLocatie = $_POST["artLocatie"]; // Get password if provided 
         
+        $row = array(
+            "artId" => $artId,
+            "artOmschrijving" => $artOmschrijving,
+            "artInkoop" => $artInkoop,
+            "artVerkoop" => $artVerkoop, 
+            "artMinVoorraad" => $artMinVoorraad,
+            "artMaxVoorraad" => $artMaxVoorraad,
+            "artLocatie" => $artLocatie  // Include password in the array
+        );
+        
+        $success = $artikel->updateArtikel($row); 
+        
+        if ($success) {
+            echo "Artikelgegevens succesvol bijgewerkt.";
+        } else {
+            echo "Fout bij het bijwerken van Artikelgegevens.";
+        }
     }
 
     if (isset($_GET['artId'])){
@@ -28,15 +52,17 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-<h1>CRUD Artikel</h1>
-<h2>Wijzigen</h2>    
+<h1>CRUD artikel</h1>
+<h2>Wijzigen</h2>	
 <form method="post">
-<input type="hidden" name="artId" 
-    value="<?php if(isset($row)) { echo $row['artId']; } ?>">
-<input type="text" name="artOmschrijving" required 
-    value="<?php if(isset($row)) {echo $row['artOmschrijving']; }?>"> *</br>
-<input type="text" name="artInkoop" required 
-    value="<?php if(isset($row)) {echo $row["artInkoop"]; }?>"> *</br></br>
+<input type="hidden" name="artId" value="<?php if(isset($row)) { echo $row['artId']; } ?>">
+<input type="text" name="artOmschrijving" placeholder="artOmschrijving" required value="<?php if(isset($row)) {echo $row['artOmschrijving']; }?>"> *</br>
+<input type="int" name="artInkoop" placeholder="artInkoop" required value="<?php if(isset($row)) {echo $row["artInkoop"]; }?>"> *</br> 
+<input type="int" name="artVerkoop" placeholder="artVerkoop" required value="<?php if(isset($row)) {echo $row["artVerkoop"]; }?>"> *</br>
+<input type="int" name="artVoorraad" placeholder="artVoorraad" required value="<?php if(isset($row)) {echo $row["artVoorraad"]; }?>"> *</br>
+<input type="int" name="artMinVoorraad" placeholder="artMinVoorraad" required value="<?php if(isset($row)) {echo $row["artMinVoorraad"]; }?>"> *</br> 
+<input type="int" name="artMaxVoorraad" placeholder="artMaxVoorraad" required value="<?php if(isset($row)) {echo $row["artMaxVoorraad"]; }?>"> *</br> 
+<input type="int" name="artLocatie" placeholder="artLocatie"> </br> 
 <input type="submit" name="update" value="Wijzigen">
 </form></br>
 
