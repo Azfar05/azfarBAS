@@ -59,11 +59,12 @@ class Klant extends Database {
      * @return array
      */
     public function getKlant(int $klantId) : array {
-        // Doe een fetch op $klantId
-        // testdata
-        $lijst = ['klantId' => 1, 'klantEmail' => 'test1@example.com', 'klantNaam' => 'Test 1', 'klantWoonplaats' => 'City 1'];
- 
-        return $lijst;
+        $sql = "SELECT klantId, klantEmail, klantNaam, klantAdres, klantPostcode, klantWoonplaats FROM " . $this->table_name . " WHERE klantId = :klantId";
+        $stmt = self::$conn->prepare($sql);
+        $stmt->bindParam(':klantId', $klantId, PDO::PARAM_INT);
+        $stmt->execute();
+        $klant = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $klant ? $klant : [];
     }
    
     public function dropDownKlant($row_selected = -1) {
