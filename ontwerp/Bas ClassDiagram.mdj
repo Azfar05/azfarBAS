@@ -111,18 +111,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPnzBCpecTShs="
 							},
-							"name": "setKlantId",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPnzkxYOer5O8=",
-									"_parent": {
-										"$ref": "AAAAAAGPnzjfR+ejv48="
-									},
-									"name": "id",
-									"type": "int"
-								}
-							]
+							"name": "crudKlant"
 						},
 						{
 							"_type": "UMLOperation",
@@ -130,18 +119,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPnzBCpecTShs="
 							},
-							"name": "getKlantId",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPnzp1ZefSwck=",
-									"_parent": {
-										"$ref": "AAAAAAGPnzlNuOet9XU="
-									},
-									"type": "int",
-									"direction": "return"
-								}
-							]
+							"name": "getKlanten"
 						},
 						{
 							"_type": "UMLOperation",
@@ -149,18 +127,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPnzBCpecTShs="
 							},
-							"name": "setKlantNaam",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPnzrKJufVw6w=",
-									"_parent": {
-										"$ref": "AAAAAAGPnzlaEuezZLE="
-									},
-									"name": "naam",
-									"type": "String"
-								}
-							]
+							"name": "getKlant"
 						},
 						{
 							"_type": "UMLOperation",
@@ -168,18 +135,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPnzBCpecTShs="
 							},
-							"name": "getKlantNaam",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPnzsbRefYjPg=",
-									"_parent": {
-										"$ref": "AAAAAAGPnzlp6ee5AmY="
-									},
-									"type": "String",
-									"direction": "return"
-								}
-							]
+							"name": "dropDownKlant"
 						},
 						{
 							"_type": "UMLOperation",
@@ -187,18 +143,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPnzBCpecTShs="
 							},
-							"name": "setKlantEmail",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPnztqRefb9uQ=",
-									"_parent": {
-										"$ref": "AAAAAAGPnzl5++e/KDA="
-									},
-									"name": "email",
-									"type": "String"
-								}
-							]
+							"name": "showTable"
 						},
 						{
 							"_type": "UMLOperation",
@@ -206,18 +151,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPnzBCpecTShs="
 							},
-							"name": "getKlantEmail",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPnzxQpufe9Nw=",
-									"_parent": {
-										"$ref": "AAAAAAGPnzmEC+fFUtY="
-									},
-									"type": "String",
-									"direction": "return"
-								}
-							]
+							"name": "BepMaxKlantId"
 						},
 						{
 							"_type": "UMLOperation",
@@ -225,18 +159,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPnzBCpecTShs="
 							},
-							"name": "setKlantAdres",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPnzx2yefhq9g=",
-									"_parent": {
-										"$ref": "AAAAAAGPnzmPqOfL0Zg="
-									},
-									"name": "adres",
-									"type": "String"
-								}
-							]
+							"name": "insertKlant"
 						},
 						{
 							"_type": "UMLOperation",
@@ -244,18 +167,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPnzBCpecTShs="
 							},
-							"name": "getKlantAdres",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPnzzUIuf2lQs=",
-									"_parent": {
-										"$ref": "AAAAAAGPnzyIi+fjQgc="
-									},
-									"type": "String",
-									"direction": "return"
-								}
-							]
+							"name": "deleteKlant"
 						},
 						{
 							"_type": "UMLOperation",
@@ -263,18 +175,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPnzBCpecTShs="
 							},
-							"name": "setKlantPostcode",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPnz0Mfuf5A1M=",
-									"_parent": {
-										"$ref": "AAAAAAGPnzypL+fp/8Y="
-									},
-									"name": "pc",
-									"type": "String"
-								}
-							]
+							"name": "zoekKlanten"
 						},
 						{
 							"_type": "UMLOperation",
@@ -282,18 +183,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPnzBCpecTShs="
 							},
-							"name": "getKlantPostcode",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPnz05GOf8BeA=",
-									"_parent": {
-										"$ref": "AAAAAAGPnzy1M+fvkoA="
-									},
-									"type": "String",
-									"direction": "return"
-								}
-							]
+							"name": "updateKlant"
 						}
 					]
 				},
@@ -519,7 +409,7 @@
 											"top": 385,
 											"width": 198,
 											"height": 13,
-											"text": "+setKlantId(id: int)",
+											"text": "+crudKlant()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -536,7 +426,7 @@
 											"top": 400,
 											"width": 198,
 											"height": 13,
-											"text": "+getKlantId(): int",
+											"text": "+getKlanten()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -553,7 +443,7 @@
 											"top": 415,
 											"width": 198,
 											"height": 13,
-											"text": "+setKlantNaam(naam: String)",
+											"text": "+getKlant()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -570,7 +460,7 @@
 											"top": 430,
 											"width": 198,
 											"height": 13,
-											"text": "+getKlantNaam(): String",
+											"text": "+dropDownKlant()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -587,7 +477,7 @@
 											"top": 445,
 											"width": 198,
 											"height": 13,
-											"text": "+setKlantEmail(email: String)",
+											"text": "+showTable()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -604,7 +494,7 @@
 											"top": 460,
 											"width": 198,
 											"height": 13,
-											"text": "+getKlantEmail(): String",
+											"text": "+BepMaxKlantId()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -621,7 +511,7 @@
 											"top": 475,
 											"width": 198,
 											"height": 13,
-											"text": "+setKlantAdres(adres: String)",
+											"text": "+insertKlant()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -638,7 +528,7 @@
 											"top": 490,
 											"width": 198,
 											"height": 13,
-											"text": "+getKlantAdres(): String",
+											"text": "+deleteKlant()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -655,7 +545,7 @@
 											"top": 505,
 											"width": 198,
 											"height": 13,
-											"text": "+setKlantPostcode(pc: String)",
+											"text": "+zoekKlanten()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -672,7 +562,7 @@
 											"top": 520,
 											"width": 198,
 											"height": 13,
-											"text": "+getKlantPostcode(): String",
+											"text": "+updateKlant()",
 											"horizontalAlignment": 0
 										}
 									],
@@ -935,7 +825,7 @@
 											"top": 370,
 											"width": 222,
 											"height": 13,
-											"text": "+setArtikelId(id: int)",
+											"text": "+crudArtikel()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -952,7 +842,7 @@
 											"top": 385,
 											"width": 222,
 											"height": 13,
-											"text": "+getArtikelId(): int",
+											"text": "+getArtikelen()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -969,7 +859,7 @@
 											"top": 400,
 											"width": 222,
 											"height": 13,
-											"text": "+setArtikelNaam(naam: string)",
+											"text": "+getArtikel()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -986,7 +876,7 @@
 											"top": 415,
 											"width": 222,
 											"height": 13,
-											"text": "+getArtikelNaam(): string",
+											"text": "+dropDownArtikel()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1003,7 +893,7 @@
 											"top": 430,
 											"width": 222,
 											"height": 13,
-											"text": "+setArtikelPrijs(prijs: double)",
+											"text": "+showTable()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1020,7 +910,7 @@
 											"top": 445,
 											"width": 222,
 											"height": 13,
-											"text": "+getArtikelPrijs(): double",
+											"text": "+deleteArtikel()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1037,7 +927,7 @@
 											"top": 460,
 											"width": 222,
 											"height": 13,
-											"text": "+setArtikelVoorraad(voorraad: int)",
+											"text": "+updateArtikel()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1054,7 +944,24 @@
 											"top": 475,
 											"width": 222,
 											"height": 13,
-											"text": "+getArtikelVoorraad(): int",
+											"text": "+BepMaxArtId()",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGQOmgGyMl3QFA=",
+											"_parent": {
+												"$ref": "AAAAAAGPwzjo0W5bXoA="
+											},
+											"model": {
+												"$ref": "AAAAAAGQOmgGq8l0mBI="
+											},
+											"font": "Arial;13;0",
+											"left": 381,
+											"top": 490,
+											"width": 222,
+											"height": 13,
+											"text": "+insertArtikel()",
 											"horizontalAlignment": 0
 										}
 									],
@@ -1062,7 +969,7 @@
 									"left": 376,
 									"top": 365,
 									"width": 232,
-									"height": 128
+									"height": 143
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -1336,7 +1243,7 @@
 											"top": 337,
 											"width": 231,
 											"height": 13,
-											"text": "+setOrderId(id: int)",
+											"text": "+crudVerkooporder()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1353,7 +1260,7 @@
 											"top": 352,
 											"width": 231,
 											"height": 13,
-											"text": "+GetOrderId(): int",
+											"text": "+getVerkoopOrders()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1370,7 +1277,7 @@
 											"top": 367,
 											"width": 231,
 											"height": 13,
-											"text": "+setOrderDatum(datum: date)",
+											"text": "+getVerkoopOrder()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1387,7 +1294,7 @@
 											"top": 382,
 											"width": 231,
 											"height": 13,
-											"text": "+getOrderDatum(): date",
+											"text": "+dropDownVerkoopOrder()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1404,7 +1311,7 @@
 											"top": 397,
 											"width": 231,
 											"height": 13,
-											"text": "+setOrderTotaal(totaal: double)",
+											"text": "+showTable()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1421,7 +1328,7 @@
 											"top": 412,
 											"width": 231,
 											"height": 13,
-											"text": "+getOrderTotaal(): double",
+											"text": "+deleteVerkoopOrder()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1438,7 +1345,7 @@
 											"top": 427,
 											"width": 231,
 											"height": 13,
-											"text": "+addOrderRegel(regel: OrderRegel)",
+											"text": "+updateVerkoopOrder()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1455,7 +1362,7 @@
 											"top": 442,
 											"width": 231,
 											"height": 13,
-											"text": "+getOrderRegel(): List<OrderRegel>",
+											"text": "+BepMaxVerkOrdId()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1472,7 +1379,7 @@
 											"top": 457,
 											"width": 231,
 											"height": 13,
-											"text": "+getKlantid(): int",
+											"text": "+insertVerkoopOrder()",
 											"horizontalAlignment": 0
 										}
 									],
@@ -1646,11 +1553,47 @@
 									"model": {
 										"$ref": "AAAAAAGPyJL1O8BP98s="
 									},
+									"subViews": [
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGQOmzc1smWdNk=",
+											"_parent": {
+												"$ref": "AAAAAAGPyJL1PcBYs1g="
+											},
+											"model": {
+												"$ref": "AAAAAAGQOmzctsmTNVA="
+											},
+											"font": "Arial;13;0",
+											"left": 253,
+											"top": 96,
+											"width": 246,
+											"height": 13,
+											"text": "+__construct()",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGQOm11ccmdUHE=",
+											"_parent": {
+												"$ref": "AAAAAAGPyJL1PcBYs1g="
+											},
+											"model": {
+												"$ref": "AAAAAAGQOm11UcmaucY="
+											},
+											"font": "Arial;13;0",
+											"left": 253,
+											"top": 111,
+											"width": 246,
+											"height": 13,
+											"text": "+getConnection()",
+											"horizontalAlignment": 0
+										}
+									],
 									"font": "Arial;13;0",
 									"left": 248,
 									"top": 91,
 									"width": 256,
-									"height": 10
+									"height": 38
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -2054,18 +1997,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPwzjo0G5SJVQ="
 							},
-							"name": "setArtikelId",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPw0ooaG8NWow=",
-									"_parent": {
-										"$ref": "AAAAAAGPwznZvG6zTW4="
-									},
-									"name": "id",
-									"type": "int"
-								}
-							]
+							"name": "crudArtikel"
 						},
 						{
 							"_type": "UMLOperation",
@@ -2073,18 +2005,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPwzjo0G5SJVQ="
 							},
-							"name": "getArtikelId",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPw0q8ym8RaKY=",
-									"_parent": {
-										"$ref": "AAAAAAGPw0mhGG7i6r8="
-									},
-									"type": "int",
-									"direction": "return"
-								}
-							]
+							"name": "getArtikelen"
 						},
 						{
 							"_type": "UMLOperation",
@@ -2092,18 +2013,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPwzjo0G5SJVQ="
 							},
-							"name": "setArtikelNaam",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPw09VA28ucuI=",
-									"_parent": {
-										"$ref": "AAAAAAGPw0mst27o7xU="
-									},
-									"name": "naam",
-									"type": "string"
-								}
-							]
+							"name": "getArtikel"
 						},
 						{
 							"_type": "UMLOperation",
@@ -2111,18 +2021,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPwzjo0G5SJVQ="
 							},
-							"name": "getArtikelNaam",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPw08tFW8q4rM=",
-									"_parent": {
-										"$ref": "AAAAAAGPw0m2Lm7utiQ="
-									},
-									"type": "string",
-									"direction": "return"
-								}
-							]
+							"name": "dropDownArtikel"
 						},
 						{
 							"_type": "UMLOperation",
@@ -2130,18 +2029,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPwzjo0G5SJVQ="
 							},
-							"name": "setArtikelPrijs",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPw0xdf28gIno=",
-									"_parent": {
-										"$ref": "AAAAAAGPw0m+d2703Lo="
-									},
-									"name": "prijs",
-									"type": "double"
-								}
-							]
+							"name": "showTable"
 						},
 						{
 							"_type": "UMLOperation",
@@ -2149,18 +2037,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPwzjo0G5SJVQ="
 							},
-							"name": "getArtikelPrijs",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPw0wTK28dl7o=",
-									"_parent": {
-										"$ref": "AAAAAAGPw0nGR276DH0="
-									},
-									"type": "double",
-									"direction": "return"
-								}
-							]
+							"name": "deleteArtikel"
 						},
 						{
 							"_type": "UMLOperation",
@@ -2168,18 +2045,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPwzjo0G5SJVQ="
 							},
-							"name": "setArtikelVoorraad",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPw04nAG8kB8k=",
-									"_parent": {
-										"$ref": "AAAAAAGPw0nPWW8AVK0="
-									},
-									"name": "voorraad",
-									"type": "int"
-								}
-							]
+							"name": "updateArtikel"
 						},
 						{
 							"_type": "UMLOperation",
@@ -2187,18 +2053,15 @@
 							"_parent": {
 								"$ref": "AAAAAAGPwzjo0G5SJVQ="
 							},
-							"name": "getArtikelVoorraad",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPw0+lZm8yW8s=",
-									"_parent": {
-										"$ref": "AAAAAAGPw0nYR28GTS4="
-									},
-									"type": "int",
-									"direction": "return"
-								}
-							]
+							"name": "BepMaxArtId"
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGQOmgGq8l0mBI=",
+							"_parent": {
+								"$ref": "AAAAAAGPwzjo0G5SJVQ="
+							},
+							"name": "insertArtikel"
 						}
 					]
 				},
@@ -2278,18 +2141,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPwzkSFW58gx4="
 							},
-							"name": "setOrderId",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPw1T48m+MowM=",
-									"_parent": {
-										"$ref": "AAAAAAGPwzn2926/RyU="
-									},
-									"name": "id",
-									"type": "int"
-								}
-							]
+							"name": "crudVerkooporder"
 						},
 						{
 							"_type": "UMLOperation",
@@ -2297,18 +2149,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPwzkSFW58gx4="
 							},
-							"name": "GetOrderId",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPw1U67W+Pct8=",
-									"_parent": {
-										"$ref": "AAAAAAGPw1GEXm9PE1o="
-									},
-									"type": "int",
-									"direction": "return"
-								}
-							]
+							"name": "getVerkoopOrders"
 						},
 						{
 							"_type": "UMLOperation",
@@ -2316,18 +2157,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPwzkSFW58gx4="
 							},
-							"name": "setOrderDatum",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPw1V6DG+SJ30=",
-									"_parent": {
-										"$ref": "AAAAAAGPw1GKp29VI74="
-									},
-									"name": "datum",
-									"type": "date"
-								}
-							]
+							"name": "getVerkoopOrder"
 						},
 						{
 							"_type": "UMLOperation",
@@ -2335,18 +2165,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPwzkSFW58gx4="
 							},
-							"name": "getOrderDatum",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPw1WsRW+VNaU=",
-									"_parent": {
-										"$ref": "AAAAAAGPw1GROG9bJ0o="
-									},
-									"type": "date",
-									"direction": "return"
-								}
-							]
+							"name": "dropDownVerkoopOrder"
 						},
 						{
 							"_type": "UMLOperation",
@@ -2354,18 +2173,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPwzkSFW58gx4="
 							},
-							"name": "setOrderTotaal",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPw1ZWIW+ZRvw=",
-									"_parent": {
-										"$ref": "AAAAAAGPw1GYdm9hthA="
-									},
-									"name": "totaal",
-									"type": "double"
-								}
-							]
+							"name": "showTable"
 						},
 						{
 							"_type": "UMLOperation",
@@ -2373,18 +2181,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPwzkSFW58gx4="
 							},
-							"name": "getOrderTotaal",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPw1aSDW+c1ao=",
-									"_parent": {
-										"$ref": "AAAAAAGPw1GfR29n3O8="
-									},
-									"type": "double",
-									"direction": "return"
-								}
-							]
+							"name": "deleteVerkoopOrder"
 						},
 						{
 							"_type": "UMLOperation",
@@ -2392,18 +2189,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPwzkSFW58gx4="
 							},
-							"name": "addOrderRegel",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPw1eAS2+fthU=",
-									"_parent": {
-										"$ref": "AAAAAAGPw1Gl9m9t7dk="
-									},
-									"name": "regel",
-									"type": "OrderRegel"
-								}
-							]
+							"name": "updateVerkoopOrder"
 						},
 						{
 							"_type": "UMLOperation",
@@ -2411,18 +2197,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPwzkSFW58gx4="
 							},
-							"name": "getOrderRegel",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPw1fdTG+ifpg=",
-									"_parent": {
-										"$ref": "AAAAAAGPw1Gs129zg44="
-									},
-									"type": "List<OrderRegel>",
-									"direction": "return"
-								}
-							]
+							"name": "BepMaxVerkOrdId"
 						},
 						{
 							"_type": "UMLOperation",
@@ -2430,18 +2205,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPwzkSFW58gx4="
 							},
-							"name": "getKlantid",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGPw1hUwW+mK44=",
-									"_parent": {
-										"$ref": "AAAAAAGPw1HSLm95dko="
-									},
-									"type": "int",
-									"direction": "return"
-								}
-							]
+							"name": "insertVerkoopOrder"
 						}
 					]
 				},
@@ -2465,6 +2229,24 @@
 							"target": {
 								"$ref": "AAAAAAGPnzBCpecTShs="
 							}
+						}
+					],
+					"operations": [
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGQOmzctsmTNVA=",
+							"_parent": {
+								"$ref": "AAAAAAGPyJL1O8BP98s="
+							},
+							"name": "__construct"
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGQOm11UcmaucY=",
+							"_parent": {
+								"$ref": "AAAAAAGPyJL1O8BP98s="
+							},
+							"name": "getConnection"
 						}
 					]
 				}
